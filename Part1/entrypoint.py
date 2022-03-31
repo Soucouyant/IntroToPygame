@@ -3,7 +3,6 @@
 #lame language
 #Required Comments ^
 
-# what?
 import pygame 
 
 # Initialize
