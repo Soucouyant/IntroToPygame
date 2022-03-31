@@ -3,8 +3,8 @@
 #lame language
 #Required Comments ^
 
+# what?
 import pygame 
-import random
 
 # Initialize
 pygame.init()
