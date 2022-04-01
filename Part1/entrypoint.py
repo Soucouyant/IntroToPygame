@@ -1,40 +1,46 @@
-#Single Line Comments are so lame
-#Just have multi line
-#lame language
-#Required Comments ^
+# Duran Ramlall
+# Part 1 of NerdParadise PyGame: Getting Started walkthrough
+# Friday April 1 2022
+# TEJ4M1 P2 Gr 12
 
+# Import Statements
 import pygame 
 
 # Initialize
 pygame.init()
 screen = pygame.display.set_mode((400, 300))
 
-#Do things
-
-isBlue = True
-color = (0, 0, 0)
-
-if isBlue == True: 
-    color = (0, 128, 255)
-elif isBlue == False: 
-    color = (255, 100, 0)
-
-# draw
-pygame.draw.rect(screen, color, pygame.Rect(30, 30, 60, 60))
-
-# Event Handler
+# Declarations
+clock = pygame.time.Clock()
 done = False
+is_blue = True
+x = 30
+y = 30
 
-while not done: 
+while not done:
+    # Event Handler
     for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_1:
-            print(color)
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-            print(color)
+            is_blue = not is_blue
         if event.type == pygame.QUIT:
             done = True
-    
+
+    # Pressed Events
+    pressed = pygame.key.get_pressed()
+    if pressed[pygame.K_UP]: y -= 3
+    if pressed[pygame.K_DOWN]: y += 3
+    if pressed[pygame.K_LEFT]: x -= 3
+    if pressed[pygame.K_RIGHT]: x+= 3
+
+    screen.fill((0, 0, 0))
+    # Color Switch
+    if is_blue: color = (0, 128, 255)
+    else: color = (255, 100, 0)
+
+    # Draw
+    pygame.draw.rect(screen, color, pygame.Rect(x, y, 60, 60)) 
+
     # Update Screen
     pygame.display.flip()
-    
+    clock.tick(60)
     
