@@ -6,7 +6,7 @@
 # Import Statements
 import pygame
 
-plrImage = pygame.image.load('./Part2/assets/ball.png')
+plrImage = pygame.image.load('./Part2/assets/img/ball.png')
 
 # Initialize
 pygame.init()
