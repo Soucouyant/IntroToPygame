@@ -10,7 +10,12 @@ plrImage = pygame.image.load('./Part2/assets/img/ball.png')
 
 # Initialize
 pygame.init()
+pygame.mixer.init()
 screen = pygame.display.set_mode((400, 300))
+
+# Musik
+pygame.mixer.music.load('./Part2/assets/sound/Ambient_Wind_01.ogg')
+pygame.mixer.music.play(-1)
 
 # Declarations
 clock = pygame.time.Clock()
