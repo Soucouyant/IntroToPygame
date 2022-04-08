@@ -12,7 +12,10 @@ pygame.init()
 screen = pygame.display.set_mode((400, 300))
 
 # Misc
-color = (90, 180, 25)
+r = 90
+g = 180
+b = 25
+color = (r,g,b)
 points = [
     (90, 180),
     (180, 90),
@@ -28,6 +31,16 @@ while not done:
     # Event Handler
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            # Reset to Black
+            screen.fill((0,0,0))
+
+            # Rand Color
+            r = random.randrange(0,255)
+            g = random.randrange(0,255)
+            b = random.randrange(0,255)
+
+            color = (r,g,b)
+
             # X1, Y1
             x1 = random.randrange(0,400)
             y1 = random.randrange(0, 300)
@@ -42,13 +55,11 @@ while not done:
             x3 = random.randrange(0,400)
             y3 = random.randrange(0,300)
             points[2] = (x3,y3)
-            
-            pygame.display.update()
+
+            pygame.draw.polygon(screen,color, points)
         if event.type == pygame.QUIT:
             done = True
 
-    pygame.draw.polygon(screen,color, points)
-    
     # Update Screen
     pygame.display.flip()
     clock.tick(60)
